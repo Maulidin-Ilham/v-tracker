@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" />
-    <title>Admin</title>
+    <title>Driver</title>
 
     @include('partials.head')
 </head>
@@ -31,7 +31,7 @@
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1" />
                             <div class="d-sm-none d-lg-inline-block">
-                                Hi, Ujang Maman
+                                Hi, Driver
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -81,35 +81,10 @@
                             </ul>
                         </li>
 
-
-                        <li class="menu-header">Pemesanan</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>
-                                    Pemesanan</span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="index-0.html">Data Pemesanan</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="menu-header">Persetujuan</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>
-                                    Persetujuan</span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="index-0.html">Data Persetujuan</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="menu-header">Log Aktivitas</li>
+                        <li class="menu-header">Jadwal Tugas</li>
                         <li class="dropdown">
                             <a href="#" class="nav-link "><i class="fas fa-fire"></i><span>
-                                    Log Aktivitas</span></a>
+                                    Jadwal Tugas</span></a>
                         </li>
 
                     </ul>
