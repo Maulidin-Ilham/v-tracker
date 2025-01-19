@@ -30,6 +30,8 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- END GA -->
+
+    <link rel="stylesheet" href="//cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css">
 </head>
 
 <body>
@@ -81,22 +83,6 @@
                         <a href="index.html">V-T</a>
                     </div>
                     <ul class="sidebar-menu">
-                        <li class="menu-header">Dashboard</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                        </li>
-
-                        <li class="menu-header">Kendaraan</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>
-                                    Kendaraan</span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="index-0.html">Data Kendaraan</a>
-                                </li>
-
-                            </ul>
-                        </li>
 
                         <li class="menu-header">Persetujuan</li>
                         <li class="dropdown">
@@ -104,17 +90,12 @@
                                     Persetujuan</span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link" href="index-0.html">Data Persetujuan</a>
+                                    <a class="nav-link" href={{ route('approver.persetujuan') }}>Data Persetujuan</a>
                                 </li>
 
                             </ul>
                         </li>
 
-                        <li class="menu-header">Log Aktivitas</li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link "><i class="fas fa-fire"></i><span>
-                                    Log Aktivitas</span></a>
-                        </li>
 
                     </ul>
 
@@ -151,7 +132,7 @@
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
-
+    <script src="//cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
 
     @stack('scripts')
 </body>

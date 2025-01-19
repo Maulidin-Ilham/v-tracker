@@ -228,5 +228,60 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        $approvers = User::where('role', 'approver')->get();
+
+
+        DB::table('pemesanans')->insert([
+            [
+                'user_id' => 1,
+                'kendaraan_id' => 1,
+                'tanggal_mulai' => '2025-01-20 00:00:00',
+                'tanggal_selesai' => '2025-01-22 00:00:00',
+                'approver1_id' => $approvers[0]->id,
+                'approver2_id' => $approvers[1]->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 1,
+                'kendaraan_id' => 3,
+                'tanggal_mulai' => '2025-01-23 00:00:00',
+                'tanggal_selesai' => '2025-01-25 00:00:00',
+                'approver1_id' => $approvers[1]->id,
+                'approver2_id' => $approvers[2]->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 1,
+                'kendaraan_id' => 5,
+                'tanggal_mulai' => '2025-01-26 00:00:00',
+                'tanggal_selesai' => '2025-01-27 00:00:00',
+                'approver1_id' => $approvers[2]->id,
+                'approver2_id' => $approvers[0]->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 1,
+                'kendaraan_id' => 7,
+                'tanggal_mulai' => '2025-01-28 00:00:00',
+                'tanggal_selesai' => '2025-01-30 00:00:00',
+                'approver1_id' => $approvers[0]->id,
+                'approver2_id' => $approvers[1]->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 1,
+                'kendaraan_id' => 9,
+                'tanggal_mulai' => '2025-01-31 00:00:00',
+                'tanggal_selesai' => '2025-02-01 00:00:00',
+                'approver1_id' => $approvers[1]->id,
+                'approver2_id' => $approvers[2]->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

@@ -28,14 +28,14 @@ class FortifyServiceProvider extends ServiceProvider
             public function toResponse($request)
             {
                 if(Auth::user()->role == "admin"){
-                    return redirect('/admin/dashboard');
+                    return redirect('/admin/kendaraan');
                 }
                 if(Auth::user()->role == "approver"){
-                    return redirect('/approver/dashboard');
+                    return redirect('/approver/persetujuan');
                 }
-                if(Auth::user()->role == "driver"){
-                    return redirect('/driver/dashboard');
-                }
+                // if(Auth::user()->role == "driver"){
+                //     return redirect('/driver/dashboard');
+                // }
 
             }
         });

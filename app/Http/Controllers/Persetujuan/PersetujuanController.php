@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Pemesanan;
+namespace App\Http\Controllers\Persetujuan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kendaraan;
@@ -8,21 +8,24 @@ use App\Models\Pemesanan;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
-class PemesananController extends Controller
+class PersetujuanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+
     public function index(Request $request)
     {
-
-        $kendaraan = Kendaraan::all();
-        $user = User::all();
+        $userId = Auth::user()->id;
 
         if ($request->ajax()) {
-            $pemesanan = Pemesanan::orderBy("created_at", "desc")->get();
+
+
+            $pemesanan = Pemesanan::where(function($query) use ($userId) {
+                $query->where('approver1_id', $userId)
+                      ->orWhere('approver2_id', $userId);
+            })->get();
             return DataTables::of($pemesanan)
                 ->addIndexColumn()
                 ->editColumn('user_id', function ($row) {
@@ -46,60 +49,10 @@ class PemesananController extends Controller
                 })
                 ->editColumn('tanggal_selesai', function ($row) {
                     return Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('D MMMM YYYY');
-                })
-
-                ->make(true);
+                })->make(true);
         }
 
-        return view('pages.admin.pemesanan.index', compact('kendaraan',));
+        return view('pages.approver.persetujuan.index');
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
