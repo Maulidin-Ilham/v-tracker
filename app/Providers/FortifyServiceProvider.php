@@ -33,9 +33,9 @@ class FortifyServiceProvider extends ServiceProvider
                 if(Auth::user()->role == "approver"){
                     return redirect('/approver/persetujuan');
                 }
-                // if(Auth::user()->role == "driver"){
-                //     return redirect('/driver/dashboard');
-                // }
+                if(Auth::user()->role == "driver"){
+                    return redirect('/driver/dashboard');
+                }
 
             }
         });
